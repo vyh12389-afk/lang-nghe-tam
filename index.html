@@ -132,6 +132,14 @@ details{margin-top:18px;font-size:13.5px}summary{cursor:pointer;color:var(--ink-
 .login-card.shake{animation:shake .3s}
 @keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 .topbar-actions{display:flex;gap:8px}
+.req{color:var(--danger)}
+.info-grid{display:grid;grid-template-columns:1fr 110px;gap:14px}
+.info-grid .name-input{max-width:none}
+.info-grid+.field{margin-top:4px}
+.flbl{display:block;font-size:12.5px;font-weight:600;margin-bottom:6px}
+.field-err{min-height:18px;margin:4px 0 0;font-size:12.5px;color:var(--danger)}
+.name-input.bad{border-color:var(--danger);background:var(--danger-tint)}
+.scale-options.bad{outline:2px solid var(--danger);outline-offset:4px;border-radius:12px}
 @media(max-width:860px){.public-nav{display:none}.public-header-inner{justify-content:space-between}.hero{grid-template-columns:1fr;padding:40px 0;text-align:center}.hero-lead{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.featured-card,.about-grid{grid-template-columns:1fr;padding:28px 22px}.section.alt{padding:40px 22px}.public-footer-inner{grid-template-columns:1fr}.chart-grid{grid-template-columns:1fr}.meters{max-width:none}}
 @media(max-width:520px){.hide-sm{display:none}.public-header-inner{padding:12px 16px}.public-brand{white-space:nowrap;font-size:16px}.public-header .btn{padding:10px 14px;font-size:13px;white-space:nowrap}.hero h1{font-size:32px}.shell{padding-left:16px;padding-right:16px}.q-group{padding:16px 14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
@@ -184,9 +192,9 @@ details{margin-top:18px;font-size:13.5px}summary{cursor:pointer;color:var(--ink-
 <main class="public-main">
   <section class="hero" id="trang-chu">
     <div>
-      <span class="eyebrow">Miễn phí · Ẩn danh · khoảng 2 phút</span>
+      <span class="eyebrow">Miễn phí · Ẩn danh · khoảng 3 phút</span>
       <h1>Khi yêu, bạn gắn bó với người ấy theo cách nào?</h1>
-      <p class="hero-lead">Mười hai câu hỏi ngắn về cách bạn tin tưởng, gần gũi và lo sợ trong một mối quan hệ. Không có đáp án đúng hay sai, bạn cứ trả lời theo cảm giác thật nhất. Kết quả hiện ngay, kèm biểu đồ và vài gợi ý nhỏ.</p>
+      <p class="hero-lead">Mười tám câu hỏi ngắn về cách bạn tin tưởng, gần gũi và lo sợ trong một mối quan hệ. Không có đáp án đúng hay sai, bạn cứ trả lời theo cảm giác thật nhất. Kết quả hiện ngay, kèm biểu đồ và vài gợi ý nhỏ.</p>
       <div class="hero-actions"><button type="button" class="btn btn-primary" data-cta>Làm bài test miễn phí</button><a href="#gioi-thieu" class="btn btn-outline">Tìm hiểu thêm</a></div>
     </div>
     <div class="hero-art" aria-hidden="true">
@@ -201,8 +209,8 @@ details{margin-top:18px;font-size:13.5px}summary{cursor:pointer;color:var(--ink-
     <div class="featured-card">
       <div>
         <h3>Bạn thuộc kiểu gắn bó nào?</h3>
-        <p>12 câu hỏi xoay quanh hai chiều: mức lo âu (sợ bị bỏ rơi) và mức né tránh (ngại gần gũi). Từ đó bạn sẽ thấy mình nằm ở đâu trong 4 kiểu gắn bó, kèm lời giải thích và gợi ý nhỏ ngay sau khi làm xong.</p>
-        <div class="featured-stats"><div><strong>12</strong><span>Câu hỏi</span></div><div><strong>2 phút</strong><span>Thời gian</span></div><div><strong>Miễn phí</strong><span>Chi phí</span></div></div>
+        <p>18 câu hỏi xoay quanh hai chiều: mức lo âu (sợ bị bỏ rơi) và mức né tránh (ngại gần gũi). Từ đó bạn sẽ thấy mình nằm ở đâu trong 4 kiểu gắn bó, kèm lời giải thích và gợi ý nhỏ ngay sau khi làm xong.</p>
+        <div class="featured-stats"><div><strong>18</strong><span>Câu hỏi</span></div><div><strong>3 phút</strong><span>Thời gian</span></div><div><strong>Miễn phí</strong><span>Chi phí</span></div></div>
         <button type="button" class="btn btn-primary" data-cta>Làm bài test ngay</button>
       </div>
       <div class="featured-visual" aria-hidden="true">
@@ -252,12 +260,18 @@ details{margin-top:18px;font-size:13.5px}summary{cursor:pointer;color:var(--ink-
   <div class="topbar"><span class="public-brand" style="font-size:15px">🌿 Lắng Nghe Tâm</span><div class="topbar-actions"><button type="button" class="btn btn-outline" id="btn-home">← Về trang chủ</button><button type="button" class="btn btn-outline" data-logout>Đăng xuất</button></div></div>
 
   <section id="quiz" class="page">
-    <div class="page-header"><h1>Trắc nghiệm kiểu gắn bó</h1><p>Trả lời đủ 12 câu bên dưới, kết quả sẽ hiện ngay sau khi bạn bấm “Xem kết quả”.</p></div>
-    <div class="q-group"><h3 class="q-group-title">Thông tin (không bắt buộc)</h3><p class="q-group-hint">Tên chỉ dùng để ghi lên ảnh kết quả, không được gửi đi đâu.</p>
-      <input type="text" id="nameIn" class="name-input" maxlength="60" placeholder="Nhập tên của bạn"></div>
-    <div class="q-progress"><span id="plabel">Đã trả lời 0/12</span><div class="bar"><i id="pbar"></i></div></div>
-    <div class="q-group"><h3 class="q-group-title">12 câu hỏi</h3><p class="q-group-hint">Hãy nghĩ về cách bạn thường cảm nhận và cư xử với người mình yêu.</p><div id="qlist"></div></div>
-    <p class="form-note">Bạn cần trả lời đủ 12 câu trước khi xem kết quả.</p>
+    <div class="page-header"><h1>Trắc nghiệm kiểu gắn bó</h1><p>Điền thông tin và trả lời đủ 18 câu bên dưới, kết quả sẽ hiện ngay sau khi bạn bấm “Xem kết quả”.</p></div>
+    <div class="q-group" id="info-card"><h3 class="q-group-title">Thông tin của bạn <span class="req">(bắt buộc)</span></h3><p class="q-group-hint">Thông tin chỉ dùng để ghi lên ảnh kết quả, không được gửi đi đâu.</p>
+      <div class="info-grid">
+        <div class="field"><label class="flbl" for="nameIn">Họ tên <span class="req">*</span></label><input type="text" id="nameIn" class="name-input" maxlength="60" placeholder="Nhập tên của bạn" autocomplete="name"><p class="field-err" id="err-name"></p></div>
+        <div class="field"><label class="flbl" for="ageIn">Tuổi <span class="req">*</span></label><input type="number" id="ageIn" class="name-input" min="10" max="100" inputmode="numeric" placeholder="Tuổi"><p class="field-err" id="err-age"></p></div>
+      </div>
+      <div class="field"><span class="flbl">Giới tính <span class="req">*</span></span>
+        <div class="scale-options gender" id="genderBox"><label><input type="radio" name="gender" value="Nam"><span>Nam</span></label><label><input type="radio" name="gender" value="Nữ"><span>Nữ</span></label><label><input type="radio" name="gender" value="Khác"><span>Khác</span></label></div>
+        <p class="field-err" id="err-gender"></p></div></div>
+    <div class="q-progress"><span id="plabel">Đã trả lời 0/18</span><div class="bar"><i id="pbar"></i></div></div>
+    <div class="q-group"><h3 class="q-group-title">18 câu hỏi</h3><p class="q-group-hint">Hãy nghĩ về cách bạn thường cảm nhận và cư xử với người mình yêu.</p><div id="qlist"></div></div>
+    <p class="form-note">Bạn cần điền đủ thông tin và trả lời đủ 18 câu trước khi xem kết quả.</p>
     <button type="button" class="btn btn-primary" id="btn-submit">Xem kết quả</button>
   </section>
 
@@ -271,7 +285,7 @@ details{margin-top:18px;font-size:13.5px}summary{cursor:pointer;color:var(--ink-
       </div>
     </div>
     <div class="chart-grid">
-      <div class="chart-card"><h4>Điểm chi tiết (Q1–Q12)</h4><div id="bars"></div></div>
+      <div class="chart-card"><h4>Điểm chi tiết (Q1–Q18)</h4><div id="bars"></div></div>
       <div class="chart-card"><h4>Vị trí của bạn trên biểu đồ gắn bó</h4><div id="map"></div><p class="mapnote" id="mapnote"></p></div>
     </div>
     <div class="result-tabs">
@@ -279,7 +293,7 @@ details{margin-top:18px;font-size:13.5px}summary{cursor:pointer;color:var(--ink-
       <div id="tab-feat" class="tab-panel"></div><div id="tab-child" class="tab-panel hidden"></div><div id="tab-adv" class="tab-panel hidden"></div>
       <p class="disclaimer">Đây là công cụ tự khám phá, không thay thế chẩn đoán của chuyên gia tâm lý. Kiểu gắn bó không cố định, nó có thể thay đổi theo người bạn đi cùng và những gì bạn trải qua.</p>
     </div>
-    <details><summary>Xem lại 12 câu trả lời</summary><div id="review"></div></details>
+    <details><summary>Xem lại 18 câu trả lời</summary><div id="review"></div></details>
     <div class="actions"><button type="button" class="btn btn-primary" id="saveImg" onclick="saveImage()">Lưu thành ảnh</button><button type="button" class="btn btn-outline" onclick="copyResult()">Sao chép kết quả</button><button type="button" class="btn btn-outline" id="btn-redo">Làm lại bài test</button></div>
   </section>
 </div></div>
@@ -289,7 +303,7 @@ details{margin-top:18px;font-size:13.5px}summary{cursor:pointer;color:var(--ink-
   <div class="rp-charts"><div id="rp-bars"></div><div id="rp-quad"></div></div>
   <div class="rp-band"></div>
   <div class="rp-cols">
-    <div><dl class="rp-meta"><dt>Họ tên</dt><dd id="rp-name"></dd><dt>Kiểu gắn bó</dt><dd class="rp-big" id="rp-type"></dd><dt>Điểm số</dt><dd id="rp-sc"></dd></dl>
+    <div><dl class="rp-meta"><dt>Họ tên</dt><dd id="rp-name"></dd><dt>Tuổi</dt><dd id="rp-age"></dd><dt>Giới tính</dt><dd id="rp-gender"></dd><dt>Kiểu gắn bó</dt><dd class="rp-big" id="rp-type"></dd><dt>Điểm số</dt><dd id="rp-sc"></dd></dl>
       <h3>Phân tích</h3><ul id="rp-feat"></ul><h3>Có thể bắt nguồn từ đâu</h3><p id="rp-child"></p></div>
     <div><h3>Lời khuyên</h3><p id="rp-adv"></p><h3>Chiều điểm cao hơn</h3><p class="rp-big" id="rp-top"></p><div id="rp-ill"></div></div>
   </div>
@@ -307,18 +321,24 @@ details{margin-top:18px;font-size:13.5px}summary{cursor:pointer;color:var(--ink-
 const MAT_KHAU="langnghe2026";
 const AUTH_KEY="lnt-auth";
 const Q=[
- {t:"Khi gặp chuyện khó khăn, tôi thấy yên tâm khi tìm đến người ấy để chia sẻ.",k:"avd",r:1},
  {t:"Tôi cần người ấy liên tục trấn an rằng họ thật sự yêu tôi.",k:"anx",r:0},
- {t:"Tôi muốn gần người ấy hơn, nhưng rồi lại tự lùi ra lúc nào không hay.",k:"avd",r:0},
+ {t:"Khi gặp chuyện khó khăn, tôi thấy yên tâm khi tìm đến người ấy để chia sẻ.",k:"avd",r:1},
  {t:"Việc tôi muốn gần gũi nhiều đôi khi khiến người ấy hoảng hoặc thấy ngột ngạt.",k:"anx",r:0},
- {t:"Mỗi khi cần được xoa dịu, tôi thường tìm đến người ấy để thấy bình yên.",k:"avd",r:1},
- {t:"Tôi cố tránh để mình trở nên quá thân thiết hoặc phụ thuộc vào người ấy.",k:"avd",r:0},
+ {t:"Tôi muốn gần người ấy hơn, nhưng rồi lại tự lùi ra lúc nào không hay.",k:"avd",r:0},
  {t:"Tôi hiếm khi lo mình sẽ bị bỏ rơi.",k:"anx",r:1},
- {t:"Tôi thường chủ động nói với người ấy về những vấn đề và băn khoăn của mình.",k:"avd",r:1},
+ {t:"Mỗi khi cần được xoa dịu, tôi thường tìm đến người ấy để thấy bình yên.",k:"avd",r:1},
  {t:"Tôi thấy bực hoặc hụt hẫng khi người ấy không ở bên lúc tôi cần.",k:"anx",r:0},
- {t:"Khi người ấy lại gần mình quá, tôi thấy bối rối hoặc lo sợ.",k:"avd",r:0},
+ {t:"Tôi cố tránh để mình trở nên quá thân thiết hoặc phụ thuộc vào người ấy.",k:"avd",r:0},
  {t:"Tôi lo người ấy không quan tâm tôi nhiều như tôi quan tâm họ.",k:"anx",r:0},
- {t:"Tôi sợ mình sẽ bị người ấy từ chối hoặc quay lưng.",k:"anx",r:0}
+ {t:"Tôi thường chủ động nói với người ấy về những vấn đề và băn khoăn của mình.",k:"avd",r:1},
+ {t:"Tôi sợ mình sẽ bị người ấy từ chối hoặc quay lưng.",k:"anx",r:0},
+ {t:"Khi người ấy lại gần mình quá, tôi thấy bối rối hoặc lo sợ.",k:"avd",r:0},
+ {t:"Tôi hay nghĩ đi nghĩ lại về từng hành động và lời nói của người ấy.",k:"anx",r:0},
+ {t:"Tôi thích tự giải quyết vấn đề của mình hơn là kéo người ấy vào.",k:"avd",r:0},
+ {t:"Tôi thấy lo khi người ấy không trả lời cuộc gọi hoặc tin nhắn nhanh.",k:"anx",r:0},
+ {t:"Tôi coi trọng sự độc lập hơn là sự thân mật trong các mối quan hệ.",k:"avd",r:0},
+ {t:"Tôi khó thấy thoải mái trong mối quan hệ nếu không liên tục được trấn an.",k:"anx",r:0},
+ {t:"Tôi thấy khó mở lòng chia sẻ về cảm xúc của mình.",k:"avd",r:0}
 ];
 const SCALE=["Hoàn toàn không đúng","Không đúng lắm","Tùy lúc, tùy hoàn cảnh","Khá đúng","Rất đúng"];
 
@@ -352,7 +372,7 @@ const P={
 
 const SV='xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif"';
 function barsSVG(){
-  const W=380,H=250,l=30,t=14,b=44,r=6,pw=W-l-r,ph=H-t-b,bw=pw/12;
+  const W=380,H=250,l=30,t=14,b=44,r=6,pw=W-l-r,ph=H-t-b,bw=pw/Q.length;
   let o=`<svg viewBox="0 0 ${W} ${H}" ${SV}>`;
   for(let v=0;v<=5;v++){const y=t+ph*(1-v/5);
     o+=`<line x1="${l}" x2="${W-r}" y1="${y}" y2="${y}" stroke="#DDE3D8" stroke-dasharray="3 3"/><text x="${l-6}" y="${y+3}" text-anchor="end" font-size="9" fill="#66716A">${v}</text>`}
@@ -397,7 +417,7 @@ function illSVG(k){
 function buildReport(){
   const p=res.p,a=+res.anx,v=+res.avd;
   $("rp-date").textContent="Ngày làm bài: "+new Date().toLocaleDateString("vi-VN");
-  $("rp-bars").innerHTML='<p class="rp-ct">Điểm chi tiết (Q1–Q12)</p>'+barsSVG();$("rp-quad").innerHTML='<p class="rp-ct">Vị trí của bạn</p>'+mapSVG(false);
+  $("rp-bars").innerHTML='<p class="rp-ct">Điểm chi tiết (Q1–Q18)</p>'+barsSVG();$("rp-quad").innerHTML='<p class="rp-ct">Vị trí của bạn</p>'+mapSVG(false);
   $("rp-type").textContent=p.title;
   $("rp-sc").textContent=`Lo âu ${res.anx}/5, Né tránh ${res.avd}/5`;
   $("rp-feat").innerHTML="";
@@ -412,7 +432,7 @@ async function saveImage(){
   const btn=$("saveImg"),old=btn.textContent,node=$("report");
   if(!window.htmlToImage){toast("Chưa tạo được ảnh, bạn thử tải lại trang nhé");return}
   btn.disabled=true;btn.textContent="Đang tạo ảnh…";
-  $("rp-name").textContent=$("nameIn").value.trim()||"—";
+  const inf=getInfo();$("rp-name").textContent=inf.name||"—";$("rp-age").textContent=inf.age||"—";$("rp-gender").textContent=inf.gender||"—";
   node.classList.add("cap");
   try{
     if(document.fonts&&document.fonts.ready)await document.fonts.ready;
@@ -429,8 +449,8 @@ async function saveImage(){
 function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2800)}
 function copyResult(){
   if(!res)return;
-  const p=res.p;
-  const txt=`Kết quả kiểu gắn bó: ${p.title}\n${p.tag}\n\nLo âu: ${res.anx}/5\nNé tránh: ${res.avd}/5\n\n`+
+  const p=res.p,inf=getInfo();
+  const txt=`Kết quả kiểu gắn bó của ${inf.name} (${inf.age} tuổi, ${inf.gender}): ${p.title}\n${p.tag}\n\nLo âu: ${res.anx}/5\nNé tránh: ${res.avd}/5\n\n`+
     p.f.map(f=>`- ${f[0]}: ${f[1]}`).join("\n")+`\n\nCó thể bắt nguồn từ đâu:\n${p.c}\n\nGợi ý cho bạn:\n${p.a}`;
   const done=()=>toast("Đã sao chép kết quả");
   if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(done).catch(()=>fb(txt,done))}
@@ -482,13 +502,25 @@ function renderQuiz(){
   });
   upd();
 }
+function getInfo(){const g=document.querySelector('input[name="gender"]:checked');return{name:$("nameIn").value.trim(),age:$("ageIn").value.trim(),gender:g?g.value:""}}
+function clearInfo(){$("nameIn").value="";$("ageIn").value="";document.querySelectorAll('input[name="gender"]').forEach(r=>r.checked=false);["name","age","gender"].forEach(k=>$("err-"+k).textContent="");$("nameIn").classList.remove("bad");$("ageIn").classList.remove("bad");$("genderBox").classList.remove("bad")}
+function validateInfo(){
+  const f=getInfo();let ok=true;
+  const set=(k,msg,el)=>{$("err-"+k).textContent=msg;el.classList.toggle("bad",!!msg);if(msg)ok=false};
+  set("name",f.name?"":"Bạn chưa nhập tên.",$("nameIn"));
+  const a=Number(f.age);
+  set("age",!f.age?"Bạn chưa nhập tuổi.":(!Number.isInteger(a)||a<10||a>100)?"Tuổi từ 10 đến 100.":"",$("ageIn"));
+  set("gender",f.gender?"":"Bạn chưa chọn giới tính.",$("genderBox"));
+  return ok;
+}
+[["nameIn","name"],["ageIn","age"]].forEach(([id,k])=>$(id).addEventListener("input",()=>{$(id).classList.remove("bad");$("err-"+k).textContent=""}));
+document.querySelectorAll('input[name="gender"]').forEach(r=>r.addEventListener("change",()=>{$("genderBox").classList.remove("bad");$("err-gender").textContent=""}));
 function submitQuiz(){
+  const okInfo=validateInfo();
   const miss=Q.map((_,i)=>i).filter(i=>!ans[i]);
-  if(miss.length){
-    miss.forEach(i=>$("q"+i).classList.add("miss"));
-    $("q"+miss[0]).scrollIntoView({block:"center"});
-    toast(`Bạn còn ${miss.length} câu chưa trả lời`);return;
-  }
+  if(!okInfo){$("info-card").scrollIntoView({block:"start"});toast("Bạn cần điền đủ tên, tuổi và giới tính");return}
+  miss.forEach(i=>$("q"+i).classList.add("miss"));
+  if(miss.length){$("q"+miss[0]).scrollIntoView({block:"center"});toast(`Bạn còn ${miss.length} câu chưa trả lời`);return}
   finish();
 }
 function finish(){
@@ -531,7 +563,7 @@ document.querySelectorAll(".tab-btn").forEach(b=>b.onclick=()=>{
 function unlock(){$("login").classList.add("hidden");$("landing").classList.remove("hidden");window.scrollTo({top:0})}
 function logout(){
   try{sessionStorage.removeItem(AUTH_KEY)}catch(_){}
-  ans={};res=null;$("nameIn").value="";
+  ans={};res=null;clearInfo();
   $("app").classList.add("hidden");$("landing").classList.add("hidden");$("login").classList.remove("hidden");
   $("pw").value="";$("pw").type="password";$("pw-toggle").textContent="Hiện";$("login-err").textContent="";
   window.scrollTo({top:0});$("pw").focus();
